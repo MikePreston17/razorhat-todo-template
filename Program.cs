@@ -28,8 +28,11 @@ DotEnv.Load();
 // Add services to the container.
 builder.Services.AddRazorPages();
 
-builder.Services.ConfigureAirtable();
-builder.Services.ConfigureNeo4j();
+if (!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("NUGS_BASE_KEY")))
+    builder.Services.ConfigureAirtable();
+
+if (!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("NEO4J_URI")))
+    builder.Services.ConfigureNeo4j();
 
 builder.Services.AddTransient<IEmbeddedResourceQuery, EmbeddedResourceQuery>();
 builder.Services.AddTransient<IEmailSender, EmailSender>();
