@@ -1,38 +1,25 @@
-# Goals
+# RazorHAT Template for One-Click Railway Deployments
 
-1. Provide a search engine that is powered by the associations between Wordpress Pages and Posts like tags, categories,
-   related contents, and user 'likes'.
+# Installation 📋
 
-<img alt="search feature" src="screenshots/search-feature.png" width="60%" height="auto">
+Click the button
 
-2. Allow the user to anticipate common Wordpress issues, like missing `&nbsp;` for French translations of English pages.
+# Troubleshooting 🐛
 
-<img alt="finding formatting issues" src="screenshots/find-format-issues.png"  width="60%" height="auto">
+1. Railway's Docker build fails to on `dotnet restore`
+   A: Make sure you have the `NIXPACKS_CSHARP_SDK_VERSION` set in your Railway Environment variables (see the editor under '`Settings`').  For this build, I'm using: `NIXPACKS_CSHARP_SDK_VERSION=7.0`
+2. Railway mysteriously says your deployment cannot be found...
+   A: Make sure your `PORT` enviroment variable is set.  Railway does not (at this time) warn you about this...  e.g.: `PORT=3000`.
 
-# Deployments
-
-Production - https://tpot-links-mkii-production.up.railway.app/
-
-## Todos
-
-- [ ] Malformed Titles
-  - Find $nbsp; and other special chars
-  - Place found issues in their own tab
-- [ ] Neo4j Query speeds
-  - Investigate why neo4j is taking a while on production typeahead search
-
-# Tech Stack
+# Tech Stack 💻
 
 |    Technology    |                                    Purpose |
 |:----------------:|-------------------------------------------:|
-|       HTMX       |                               AJAX upgrade |
-|      DasyUI      |                         Easy UI Components |
-|     AlpineJS     |                                   tiny Vue |
-| Insight.Database |                  Dapper and EF replacement |
+|       HTMX       |                               AJAX replacement |
+|      DasyUI      |                         Easy Tailwind UI Components |
+|     AlpineJS     |                                   reactive Javascript variables in the DOM |
+| Insight.Database |                  Dapper and Entity Framework replacement |
 |   TailwindCSS    |                                    CSS API |
-|     Airtable     |             Interact with the Airtable API |
-| ElectronNET.API  |                Make this app a Desktop app |
-|   Neo4j.Driver   | Searches, relationships and flaw Detection |
-|   DotEnv.Core    |                                  Read .env |
+|   Lego    |                                    Create your own Web Components |
 
 
