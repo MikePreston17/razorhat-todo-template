@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace TPOT_Links.GlobalErrorHandling.Extensions
+namespace RazorHAT_Template.GlobalErrorHandling.Extensions
 {
     public interface ILoggerManager {
         public void LogError(string e);

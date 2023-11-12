@@ -2,7 +2,7 @@ using System.Text;
 using CodeMechanic.Extensions;
 using Microsoft.AspNetCore.Html;
 
-namespace TPOT_Links;
+namespace RazorHAT_Template;
 
 public static class HtmlExtensions
 {

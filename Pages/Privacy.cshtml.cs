@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace TPOT_Links.Pages;
+namespace RazorHAT_Template.Pages;
 
 public class PrivacyModel : PageModel
 {

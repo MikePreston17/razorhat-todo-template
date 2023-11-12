@@ -1,7 +1,7 @@
 using Insight.Database.MissingExtensions;
 using NSpecifications;
 
-namespace TPOT_Links;
+namespace RazorHAT_Template;
 
 public class AvatarDetails
 {

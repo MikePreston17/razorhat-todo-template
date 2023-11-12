@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace TPOT_Links.Controllers;
+namespace RazorHAT_Template.Controllers;
 
 [ApiController]
 [Route("[controller]")]

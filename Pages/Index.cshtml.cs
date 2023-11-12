@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Neo4j.Driver;
 using Newtonsoft.Json;
 
-namespace TPOT_Links.Pages;
+namespace RazorHAT_Template.Pages;
 
 public class IndexModel : HighSpeedPageModel
 {
@@ -17,9 +17,8 @@ public class IndexModel : HighSpeedPageModel
 
     public IndexModel(
         IEmbeddedResourceQuery embeddedResourceQuery
-        , IDriver driver = null
-        , IAirtableRepo repo = null)
-        : base(embeddedResourceQuery, driver, repo)
+    )
+        : base(embeddedResourceQuery)
     {
     }
 
@@ -32,8 +31,8 @@ public class IndexModel : HighSpeedPageModel
         // Debug.WriteLine(query);
 
         string routes_json = """
-            [{"url":"/Admin/FeatureRequest","text":"FeatureRequest","enabled":true,"external":false},{"url":"/Admin/Index","text":"Index","enabled":true,"external":false},{"url":"/Comments/FinishedScrapes","text":"FinishedScrapes","enabled":true,"external":false},{"url":"/Comments/Index","text":"Index","enabled":true,"external":false},{"url":"/Comments/Manual_Copies","text":"Manual_Copies","enabled":true,"external":false},{"url":"/Comments/ScrapeRequestForm","text":"ScrapeRequestForm","enabled":true,"external":false},{"url":"/Comments/Scrapes","text":"Scrapes","enabled":true,"external":false},{"url":"/Comments/ScriptureHighlighter","text":"ScriptureHighlighter","enabled":true,"external":false},{"url":"/Error","text":"Error","enabled":true,"external":false},{"url":"/Index","text":"Index","enabled":true,"external":false},{"url":"/Logs/Index","text":"Index","enabled":true,"external":false},{"url":"/Markdown/Index","text":"Index","enabled":true,"external":false},{"url":"/Privacy","text":"Privacy","enabled":true,"external":false},{"url":"/Sandbox/.old/Index","text":"Index","enabled":true,"external":false},{"url":"/Sandbox/Index","text":"Index","enabled":true,"external":false},{"url":"/Tutorial/HxPatchExample","text":"HxPatchExample","enabled":true,"external":false},{"url":"/Tutorial/HxPostExample","text":"HxPostExample","enabled":true,"external":false},{"url":"/Tutorial/Index","text":"Index","enabled":true,"external":false},{"url":"/Uploads/Index","text":"Index","enabled":true,"external":false}]
-        """;
+                                 [{"url":"/Admin/FeatureRequest","text":"FeatureRequest","enabled":true,"external":false},{"url":"/Admin/Index","text":"Index","enabled":true,"external":false},{"url":"/Comments/FinishedScrapes","text":"FinishedScrapes","enabled":true,"external":false},{"url":"/Comments/Index","text":"Index","enabled":true,"external":false},{"url":"/Comments/Manual_Copies","text":"Manual_Copies","enabled":true,"external":false},{"url":"/Comments/ScrapeRequestForm","text":"ScrapeRequestForm","enabled":true,"external":false},{"url":"/Comments/Scrapes","text":"Scrapes","enabled":true,"external":false},{"url":"/Comments/ScriptureHighlighter","text":"ScriptureHighlighter","enabled":true,"external":false},{"url":"/Error","text":"Error","enabled":true,"external":false},{"url":"/Index","text":"Index","enabled":true,"external":false},{"url":"/Logs/Index","text":"Index","enabled":true,"external":false},{"url":"/Markdown/Index","text":"Index","enabled":true,"external":false},{"url":"/Privacy","text":"Privacy","enabled":true,"external":false},{"url":"/Sandbox/.old/Index","text":"Index","enabled":true,"external":false},{"url":"/Sandbox/Index","text":"Index","enabled":true,"external":false},{"url":"/Tutorial/HxPatchExample","text":"HxPatchExample","enabled":true,"external":false},{"url":"/Tutorial/HxPostExample","text":"HxPostExample","enabled":true,"external":false},{"url":"/Tutorial/Index","text":"Index","enabled":true,"external":false},{"url":"/Uploads/Index","text":"Index","enabled":true,"external":false}]
+                             """;
 
         var routes = JsonConvert.DeserializeObject<List<PageRoute>>(routes_json);
         string pattern = """(?<parent>.*)\/(?<pagename>\w+)""";
@@ -46,7 +45,7 @@ public class IndexModel : HighSpeedPageModel
         // all_routes.Dump("all_routes");
 
         var routes_w_breadcrumbs = all_routes
-            .Select(r => new PageRoute(r))
+                .Select(r => new PageRoute(r))
             // .Dump("routes w/ bread")
             ;
 
@@ -58,17 +57,17 @@ public class IndexModel : HighSpeedPageModel
         string html = new StringBuilder()
             .AppendEach(my_routes, route =>
                 $"""
-                <div class='card'>
-                    <div class='card-body flex flex-col'>
-
-                        <h1 class='text-sm'>{route.text}</h1>
-                        <li class='link'>{route?.url ?? "(none)"}</li>
-                    </div>
-                </div>
-            """)
+                     <div class='card'>
+                         <div class='card-body flex flex-col'>
+                 
+                             <h1 class='text-sm'>{route.text}</h1>
+                             <li class='link'>{route?.url ?? "(none)"}</li>
+                         </div>
+                     </div>
+                 """)
             .ToString()
             .Tag("ul", className: "text-sm flex flex-col gap-4");
-        
+
         return Content(html);
     }
 }

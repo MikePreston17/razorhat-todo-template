@@ -1,6 +1,6 @@
 using Microsoft.Data.SqlClient;
 
-namespace TPOT_Links;
+namespace RazorHAT_Template;
 
 public sealed record LogRecord
 {

@@ -1,8 +1,6 @@
 using CodeMechanic.Embeds;
 using CodeMechanic.FileSystem;
-using CodeMechanic.Neo4j.Repos;
-using TPOT_Links.Controllers;
-using TPOT_Links.Pages.Admin.Emails;
+using RazorHAT_Template.Controllers;
 
 var policyName = "_myAllowSpecificOrigins";
 
@@ -27,23 +25,12 @@ DotEnv.Load();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
-if (!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("NUGS_BASE_KEY")))
-    builder.Services.ConfigureAirtable();
-
-if (!string.IsNullOrWhiteSpace(Environment.GetEnvironmentVariable("NEO4J_URI")))
-    builder.Services.ConfigureNeo4j();
-
 builder.Services.AddTransient<IEmbeddedResourceQuery, EmbeddedResourceQuery>();
-builder.Services.AddTransient<IEmailSender, EmailSender>();
-builder.Services.AddTransient<INeo4JRepo, Neo4JRepo>();
 builder.Services.AddTransient<ICarService, CarService>();
 
 builder.Services.AddControllers();
 
 var app = builder.Build();
-
-// source: https://github.com/tutorialseu/sending-emails-in-asp/blob/main/Program.cs
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

@@ -1,5 +1,5 @@
 
-namespace TPOT_Links;
+namespace RazorHAT_Template;
 
 
 public class TPOTPapersResult
