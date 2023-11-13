@@ -4,10 +4,10 @@
     @* <div class="bg-primary w-72"> *@
 
     <div class="text-sm bg-primary gap-2 flex flex-col">
-        <div class="border-tahiti-500">
+        <div class="">
             <partial name="SampleLogoCard"></partial>
         </div>
-        <div class="flex-end border-yellow-500">
+        <div class="flex-end">
             <partial name="SampleCommandOptions"></partial>
         </div>
     </div>
@@ -15,14 +15,20 @@
     @* </div> *@
 
     @* <div class="flex flex-row justify-center bg-accent items-center"> *@
-    <div class=" border-accent border-4 flex-1 overflow-scroll">
+    <div class="flex-1 overflow-scroll">
         <partial name="SampleTable"></partial>
     </div>
     @* </div> *@
 
-    <div class="h-screen bg-secondary text-white">
+    <div class="h-screen">
         <partial name="DetailsPanel"/>
     </div>
 
 
 </div>
+
+<style>
+*{
+    /*border: 1px cyan solid;*/
+}
+</style>

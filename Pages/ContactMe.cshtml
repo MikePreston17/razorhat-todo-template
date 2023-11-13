@@ -1,13 +1,46 @@
 @model RazorHAT_Template.Pages.IndexModel
 @{
     var indexmodel = Model;
-    var contact_email = indexmodel.UserContact;
+    var contact = indexmodel.UserContact;
 }
 
-<form hx-post='@Url.Page("Index", "ContactMe")'>
-    <label asp-for="@contact_email.From"></label> <input type="text" asp-for="@contact_email.From"/><br>
-    <label asp-for="@contact_email.Email"></label> <input type="text" asp-for="@contact_email.Email"/><br>
-    <label asp-for="@contact_email.Subject"></label> <input type="text" asp-for="@contact_email.Subject"/><br>
-    <label asp-for="@contact_email.Comments"></label> <textarea asp-for="@contact_email.Comments"></textarea><br>
-    <input type="submit"/>
-</form>
+
+<div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+    <form
+        class="card-body"
+        hx-post='@Url.Page("Index", "ContactMe")'>
+        <div class="form-control">
+            <label class="label" asp-for="@contact.From">
+                <span class="label-text">@nameof(contact.From)</span>
+            </label>
+            <input class="input input-bordered" type="text" asp-for="@contact.From"/>
+        </div>
+
+        <div class="form-control">
+            <label class="label" asp-for="@contact.Email">
+                <span class="label-text">@nameof(contact.Email)</span>
+            </label>
+            <input class="input input-bordered" type="text" asp-for="@contact.Email"/><br>
+        </div>
+
+        <div class="form-control">
+            <label class="label" asp-for="@contact.Subject">
+                <span class="label-text">@nameof(contact.Subject)</span>
+            </label>
+            <input type="text" placeholder="email"
+                   class="input input-bordered"
+                   required
+                   asp-for="@contact.Subject"/><br>
+        </div>
+        <div class="form-control">
+            <label class="label" asp-for="@contact.Comments">
+                <span class="label-text">@nameof(contact.Comments)</span>
+            </label>
+            <textarea class="input input-bordered" asp-for="@contact.Comments"></textarea><br>
+        </div>
+        <input class="btn btn-accent" type="submit"/>
+
+        @* <sl-copy-button value="Shoelace rocks!"></sl-copy-button> *@
+
+    </form>
+</div>
