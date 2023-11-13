@@ -3,15 +3,20 @@
   
 
   
-    const state = {name: "World!"}
-
 
   const __template = function({ state }) {
     return [  
-    h("div", {}, [
-      h("h2", {}, `Blarg`),
-      h("p", {}, `Hello ${ state.name }`),
-      h("slot", {}, "")
+`cm-counter
+    `,
+    h("div", {"class": `hero min-h-screen bg-base-200`}, [
+      h("div", {"class": `hero-content text-center`}, [
+        h("div", {"class": `max-w-md`}, [
+          h("h1", {"class": `text-5xl font-bold`}, `Hello there`),
+          h("p", {"class": `py-6`}, `Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi
+                    exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.`),
+          h("button", {"class": `btn btn-primary`}, `Get Started`)
+        ])
+      ])
     ])
   ]
   }

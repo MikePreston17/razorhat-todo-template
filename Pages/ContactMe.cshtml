@@ -1,0 +1,13 @@
+@model RazorHAT_Template.Pages.IndexModel
+@{
+    var indexmodel = Model;
+    var contact_email = indexmodel.UserContact;
+}
+
+<form hx-post='@Url.Page("Index", "ContactMe")'>
+    <label asp-for="@contact_email.From"></label> <input type="text" asp-for="@contact_email.From"/><br>
+    <label asp-for="@contact_email.Email"></label> <input type="text" asp-for="@contact_email.Email"/><br>
+    <label asp-for="@contact_email.Subject"></label> <input type="text" asp-for="@contact_email.Subject"/><br>
+    <label asp-for="@contact_email.Comments"></label> <textarea asp-for="@contact_email.Comments"></textarea><br>
+    <input type="submit"/>
+</form>

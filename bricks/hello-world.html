@@ -1,7 +1,11 @@
 <script>
-  const state = { name: "World!" }
+    const state = {name: "World!"}
 </script>
 
 <template>
-  <p>Hello ${ state.name }</p>
+    <div>
+        <h2>Blarg</h2>
+        <p>Hello ${ state.name }</p>
+        <slot></slot>
+    </div>
 </template>

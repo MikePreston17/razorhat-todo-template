@@ -1,41 +1,22 @@
 ﻿@page
+@using RazorHAT_Template.Pages
 @model RazorHAT_Template.Pages.IndexModel
+@inject ICommentService comment_service
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div x-data="setup()">
-    <section class="font-['Space Mono'] min-h-screen flex flex-col items-center justify-center text-2xl text-secondary">
-
-        <flex-row>
-            <label for="">TailwindCSS buttons</label>
-            <button class="btn btn-primary">One</button>
-            <button class="btn btn-secondary">Two</button>
-            <button class="btn btn-accent btn-outline">Three</button>
-        </flex-row>
-
-        <hello-world> Hi there! I'm a web component!</hello-world>
-
-    </section>
+<div x-data="setup()" class="rounded-xl border-yellow-500 border-2 m-2">
+    <partial name="DashboardAttempt2"/>
+    @* <partial name="DashboardAttempt1"/> *@
 </div>
-
-<script type="module">
-    
-</script>
 
 <script>
     function setup() {
         return {
             admin: false,
-            hero_title: "Welcome to RazorHAT!",
-            button_link: "/Sandbox",
-            get grid_class() {
-                console.log('my routes: ', this.routes)
-                let column_count = 5; //this.routes ? .length % 2;
-                let row_count = 5;
-                console.table(["cols", column_count, "rows", row_count]);
-                return `grid grid-cols-${column_count} lg:grid-cols-${column_count} lg:grid-rows-${row_count}`;
-            },
+            debug_mode: true,
+            hero_title: "Welcome to RazorHAT!"
         }
     }
 </script>

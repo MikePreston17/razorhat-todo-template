@@ -3,14 +3,10 @@
   
 
   
-    const state = {name: "World!"}
-
 
   const __template = function({ state }) {
     return [  
     h("div", {}, [
-      h("h2", {}, `Blarg`),
-      h("p", {}, `Hello ${ state.name }`),
       h("slot", {}, "")
     ])
   ]
@@ -20,6 +16,14 @@
     return h('style', {}, `
       
       
+        div {
+            flex: auto;
+            flex-direction: row;
+            gap: 40px;
+        }
+    
+    
+    
     `)
   }
 

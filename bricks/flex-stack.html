@@ -1,0 +1,31 @@
+<script>
+    const state = {color: '#e4a', saber: 'rgba(0, 255, 0, 0.5)'}
+</script>
+<template>
+    <h1>User profile</h1>
+    <p>important information:
+        <slot></slot>
+    </p>
+</template>
+
+<style>
+    h1 {
+        color: ${ state.color };
+        text-shadow: 4px 6px 8px ${ state.saber };
+    }
+</style>
+
+<!--<template>-->
+<!--    <div-->
+<!--            style="{-->
+<!--            flex-direction: column;-->
+<!--            }"-->
+<!--            class="flex flex-col items-center justify-center gap-2">-->
+
+<!--        <slot></slot>-->
+<!--    </div>-->
+<!--</template>-->
+
+<!--<style>-->
+<!--    -->
+<!--</style>-->

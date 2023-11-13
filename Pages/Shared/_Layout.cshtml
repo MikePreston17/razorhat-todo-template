@@ -32,41 +32,21 @@
 
     @* load your own scripts! *@
     <script src="~/js/animations/hacky_text_animation.js"></script>
-    
-    <script src="/dist" ></script>
+
+    <script src="~/dist/flex-stack.js"></script>
+    <script src="~/dist/flex-row.js"></script>
+    <script src="~/dist/hello-world.js"></script>
 
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
 </head>
 <body class='text-lg bg-base-500'>
 <header>
-
-    <!-- <div>
-
-        @* <div class="drawer"> *@
-        @*     <div class="drawer-side"> *@
-        @*         <label for="my-drawer-3" class="drawer-overlay"></label> *@
-        @*         <ul class="menu p-4 w-80 h-full bg-base-200"> *@
-        @*      *@
-        @*         <template x-for="route of routes"> *@
-        @*             <div x-text="route.title"></div> *@
-        @*             <div class="mb-3"> *@
-        @*                 <label class="form-label" :for="title"></label> *@
-        @*                 <a :href="path"></a> *@
-        @*             </div> *@
-        @*         </template> *@
-        @*         </ul> *@
-        @*      *@
-        @*     </div> *@
-        @* *@
-        @* </div> *@
-
-    </div> -->
-
-
 </header>
-<main role="main" class="pb-3">
+<main role="main" class="text-xs">
     @RenderBody()
 </main>
+
+<script src="~/lib/@@polight/lego/dist/lego.min.js"></script>
 
 @await RenderSectionAsync("Scripts", required: false)
 

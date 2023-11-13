@@ -3,14 +3,15 @@
   
 
   
-    const state = {name: "World!"}
+    const state = {color: '#e4a', saber: 'rgba(0, 255, 0, 0.5)'}
 
 
   const __template = function({ state }) {
     return [  
-    h("div", {}, [
-      h("h2", {}, `Blarg`),
-      h("p", {}, `Hello ${ state.name }`),
+    h("h1", {}, `User profile`),
+    h("p", {}, [
+`important information:
+        `,
       h("slot", {}, "")
     ])
   ]
@@ -20,6 +21,11 @@
     return h('style', {}, `
       
       
+        h1 {
+            color: ${ state.color };
+            text-shadow: 4px 6px 8px ${ state.saber };
+        }
+    
     `)
   }
 

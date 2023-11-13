@@ -3,14 +3,17 @@
   
 
   
-    const state = {name: "World!"}
-
 
   const __template = function({ state }) {
     return [  
-    h("div", {}, [
-      h("h2", {}, `Blarg`),
-      h("p", {}, `Hello ${ state.name }`),
+    h("h1", {"style": `color: #4a90e2;`}, [
+`Welcome to Protocol Droid
+        `,
+      h("sl-icon", {"class": `bg-accent text-accent`, "style": `{color: #1b6ec2}`, "name": `android`}, "")
+    ]),
+    h("p", {}, [
+`The fast way to refactor!
+        `,
       h("slot", {}, "")
     ])
   ]

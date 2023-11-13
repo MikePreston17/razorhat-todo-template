@@ -1,0 +1,28 @@
+<div class="font-['Space Mono'] min-h-screen grid grid-cols-3 text-2xl text-secondary p-4">
+
+    @* Main side panel *@
+    @* <div class="bg-primary w-72"> *@
+
+    <div class="text-sm bg-primary gap-2 flex flex-col">
+        <div class="border-tahiti-500">
+            <partial name="SampleLogoCard"></partial>
+        </div>
+        <div class="flex-end border-yellow-500">
+            <partial name="SampleCommandOptions"></partial>
+        </div>
+    </div>
+
+    @* </div> *@
+
+    @* <div class="flex flex-row justify-center bg-accent items-center"> *@
+    <div class=" border-accent border-4 flex-1 overflow-scroll">
+        <partial name="SampleTable"></partial>
+    </div>
+    @* </div> *@
+
+    <div class="h-screen bg-secondary text-white">
+        <partial name="DetailsPanel"/>
+    </div>
+
+
+</div>

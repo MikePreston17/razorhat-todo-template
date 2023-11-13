@@ -1,10 +1,18 @@
+using CodeMechanic.Diagnostics;
 using CodeMechanic.Embeds;
 using CodeMechanic.FileSystem;
+using CodeMechanic.Shargs;
 using RazorHAT_Template.Controllers;
+using RazorHAT_Template.Pages;
 
 var policyName = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
+
+var arguments = new ArgumentsCollection(args);
+
+(_, var input_file) = arguments.Matching("--file");
+input_file.Dump("input file from args");
 
 // Allow CORS: https://www.stackhawk.com/blog/net-cors-guide-what-it-is-and-how-to-enable-it/#enable-cors-and-fix-the-problem
 builder.Services.AddCors(options =>
@@ -27,6 +35,7 @@ DotEnv.Load();
 builder.Services.AddRazorPages();
 builder.Services.AddTransient<IEmbeddedResourceQuery, EmbeddedResourceQuery>();
 builder.Services.AddTransient<ICarService, CarService>();
+builder.Services.AddTransient<ICommentService, MassEmailerService>();
 
 builder.Services.AddControllers();
 
